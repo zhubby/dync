@@ -5,18 +5,22 @@ import (
 	"time"
 )
 
-var defaultConfig = Config{
-	Namespace:     v1.NamespaceDefault,
-	CacheResync:   30 * time.Second,
-	ConfigMapName: "dyn-config-map",
+var globalConfig = Config{
+	Debug:               true,
+	Namespace:           v1.NamespaceDefault,
+	CacheResync:         30 * time.Second,
+	ConfigMapNameAndKey: map[string][]string{"dyn-config": []string{"config"}},
+	FileType:            "yaml",
 }
 
 func Setting(c Config) {
-	defaultConfig = c
+	globalConfig = c
 }
 
 type Config struct {
-	Namespace     string `json:"namespace"`
-	CacheResync   time.Duration
-	ConfigMapName string `json:"config_map_name"`
+	Debug               bool
+	Namespace           string
+	CacheResync         time.Duration
+	ConfigMapNameAndKey map[string][]string
+	FileType            string
 }
