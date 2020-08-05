@@ -3,7 +3,10 @@ module github.com/zhubby/dync
 go 1.13
 
 require (
-	github.com/spf13/viper v1.7.1 // indirect
+	github.com/fsnotify/fsnotify v1.4.7
+	github.com/spf13/afero v1.3.3
+	github.com/spf13/viper v1.7.1
+	gopkg.in/fsnotify.v1 v1.4.7
 	k8s.io/api v0.18.3
 	k8s.io/apimachinery v0.18.3 // indirect
 	k8s.io/client-go v12.0.0+incompatible
